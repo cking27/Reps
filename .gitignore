@@ -4,6 +4,7 @@ project.lock.json
 .DS_Store
 *.pyc
 
+
 # Visual Studio Code
 .vscode
 
@@ -23,10 +24,14 @@ x86/
 build/
 bld/
 [Bb]in/
+
 [Oo]bj/
 msbuild.log
 msbuild.err
 msbuild.wrn
 
+**/tools
+
 .vs/
 
+back/RepsApi/tools/Cake/Microsoft.CodeAnalysis.dll
