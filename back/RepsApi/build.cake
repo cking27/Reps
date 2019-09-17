@@ -20,7 +20,8 @@ Task("Default")
 
 Task("Run")
 .IsDependentOn("Build") 
-.IsDependentOn("Docker-Build");
+.IsDependentOn("Docker-Build")
+.IsDependentOn("Docker-Run");
 
 
 
@@ -36,6 +37,11 @@ Task("Docker-Build")
 .Does(() => {
     var settings = new DockerImageBuildSettings { Tag = new[] {"dockerapp:latest" }};
     DockerBuild(settings, "./docker");
+});
+
+Task("Docker-Run")
+.Does(() => {
+    DockerRun("dockerapp",null,null);
 });
 
 RunTarget(target);
