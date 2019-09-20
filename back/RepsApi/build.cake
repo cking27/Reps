@@ -33,6 +33,9 @@ Task("Build").Does(() => {
     throw ex;
 });
 
+
+
+
 Task("Docker-Build")
 .Does(() => {
     var settings = new DockerImageBuildSettings { Tag = new[] {"dockerapp:latest" }};
@@ -42,6 +45,11 @@ Task("Docker-Build")
 Task("Docker-Run")
 .Does(() => {
     DockerRun("dockerapp",null,null);
+});
+
+Task("RepsApi-Run")
+.Does(() => {
+    DotNetCoreRun("./src/RepsApi.csproj");
 });
 
 RunTarget(target);
