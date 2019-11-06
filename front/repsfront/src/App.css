@@ -1,0 +1,37 @@
+.App .RepsDatePicker {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.break {
+  height: 0;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  /* Add this */
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #5995DA;
+  /* Blue */
+}
+
+.flex-container>div {
+  background-color: #f1f1f1;
+  margin: 10px;
+  padding: 20px;
+  font-size: 30px;
+
+}
+
+.stations {
+  display: flex;
+  justify-content: space-around;
+
+}
