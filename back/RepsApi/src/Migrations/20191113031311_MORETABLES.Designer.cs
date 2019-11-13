@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using RepsApi.Models;
@@ -9,9 +10,10 @@ using RepsApi.Models;
 namespace RepsApi.Migrations
 {
     [DbContext(typeof(WorkoutDayContext))]
-    partial class WorkoutDayContextModelSnapshot : ModelSnapshot
+    [Migration("20191113031311_MORETABLES")]
+    partial class MORETABLES
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

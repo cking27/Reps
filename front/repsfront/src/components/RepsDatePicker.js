@@ -7,19 +7,29 @@ import "react-datepicker/dist/react-datepicker.css";
 
 class RepsDatePicker extends React.Component {
   state = {
-    startDate: new Date()
+    startDate: new Date(),
+    startText: this.getText()
   };
 
+  getText(){
+    return "Boo";
+  }
+  
   handleChange = date => {
     this.setState({
       startDate: date
     });
+
+    this.updateDb(date);
   };
+
+  updateDb(date){
+    alert("new date :" + typeof date)
+  }
 
   render() {
     return (
       <div className="RepsDatePicker">
-        <div>Pick a date:</div>
         <DatePicker
           selected={this.state.startDate}
           onChange={this.handleChange}

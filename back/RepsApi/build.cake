@@ -18,11 +18,9 @@ Task("Default")
   Information("Hello World!");
 });
 
-Task("Run")
-.IsDependentOn("Build") 
+Task("RunDocker")
 .IsDependentOn("Docker-Build")
 .IsDependentOn("Docker-Run");
-
 
 
 Task("Build").Does(() => {
@@ -32,8 +30,6 @@ Task("Build").Does(() => {
     Error("Build Failed, throwing exception...");
     throw ex;
 });
-
-
 
 
 Task("Docker-Build")
@@ -47,7 +43,8 @@ Task("Docker-Run")
     DockerRun("dockerapp",null,null);
 });
 
-Task("RepsApi-Run")
+Task("RunApi")
+.IsDependentOn("Build") 
 .Does(() => {
     DotNetCoreRun("./src/RepsApi.csproj");
 });
