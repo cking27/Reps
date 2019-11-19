@@ -5,6 +5,35 @@ import Hero from "./components/Hero";
 import RepsDatePicker from "./components/RepsDatePicker";
 import Station from "./components/Station";
 
+
+const testData  = [{"id":1,"name":"Bicep Curl","notes":null},{"id":2,"name":"Tricep ","notes":null}];
+
+
+
+
+class StationList extends React.Component {
+  componentDidMount() {
+    fetch('https://localhost:5001/api/workout/getstations')
+    .then(res => res.json())
+    .then((data) => {
+      this.setState({ stations: data })
+    })
+    .catch(console.log)
+  }
+
+  render() {
+  	return (
+      <div className="stations">
+        boo
+    </div>
+    );
+  }
+
+ 
+
+}
+
+
 function App() {
   return (
     <div className="flex-container">
@@ -13,22 +42,7 @@ function App() {
       <div className="break"></div>
       <RepsDatePicker className="RepsDatePicker" />
       <div className="break"></div>
-      <div className="stations">
-        <Station class />
-        <Station class />
-      </div>
-      <div className="stations">
-        <Station class />
-        <Station class />
-      </div>
-      <div className="stations">
-        <Station class />
-        <Station class />
-      </div>
-      <div className="stations">
-        <Station class />
-        <Station class />
-      </div>
+      <StationList />
     </div>
   );
 }

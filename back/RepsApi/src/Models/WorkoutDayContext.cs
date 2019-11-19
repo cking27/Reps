@@ -13,7 +13,6 @@ namespace RepsApi.Models
 
         public DbSet<Set> Sets { get; set; }
 
-
         public DbSet<Station> Stations { get; set; }
 
         public DbSet<Workout> Workouts { get; set; }
