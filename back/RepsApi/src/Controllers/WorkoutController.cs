@@ -28,8 +28,6 @@ namespace RepsApi.Controllers
                 
             }
            
-
-
             _context.SaveChanges();
         }
 
@@ -40,11 +38,49 @@ namespace RepsApi.Controllers
         }
 
         [HttpGet("GetStations", Name = "GetStations")]
-
         public ActionResult<List<Station>> GetStations()
         {
             return _context.Stations.ToList();
         }
+
+        [HttpPost("CreateWorkoutDay", Name = "CreateWorkoutDay")]
+        public ActionResult<int> CreateWorkoutDay()
+        {
+            var workoutDay = new WorkoutDay(){
+                Date = new System.DateTime(),
+                Description = "bpp",
+                 
+            };
+
+            var savedWorkoutDay = _context.WorkoutDays.Add(workoutDay);
+
+            var stations  = _context.Stations;
+
+            var workout = new Workout(){
+                WorkoutDayFK = savedWorkoutDay.Entity.Id,
+                StationSets  =new List<StationSet>(){
+                    new StationSet{
+                         StationFK = 1,
+                        Sets =  new List<Set>(){
+                            new Set{
+                            Reps = 10,
+                            Weight = 80
+                            }
+                        }
+                    }
+                }};
+
+                _context.Workouts.Add(workout);
+
+
+
+            var result = _context.SaveChanges();
+
+            return 1;
+    
+        }
+
+
 
         [HttpGet("{id}", Name = "GetWorkout")]
         public ActionResult<WorkoutDay> GetById(long id)

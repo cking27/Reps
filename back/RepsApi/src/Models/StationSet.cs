@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RepsApi.Models
@@ -9,6 +10,6 @@ namespace RepsApi.Models
         
         [ForeignKey("Station")]     
         public long StationFK { get; set; }
-        public Set[] Sets {get;set;}
+        public virtual ICollection<Set> Sets {get;set;}
     }
 }

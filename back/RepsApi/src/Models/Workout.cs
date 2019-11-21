@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RepsApi.Models
@@ -10,6 +11,6 @@ namespace RepsApi.Models
         [ForeignKey("WorkoutDay")]     
         public long WorkoutDayFK { get; set; }
 
-        public StationSet[] StationSets{ get; set; }
+        public virtual ICollection<StationSet> StationSets{ get; set; }
     }
 }

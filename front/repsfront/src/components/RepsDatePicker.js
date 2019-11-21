@@ -23,8 +23,16 @@ class RepsDatePicker extends React.Component {
     this.updateDb(date);
   };
 
-  updateDb(date){
-    alert("new date :" + typeof date)
+  updateDb(){
+    var b = this.state.startDate.toLocaleDateString();
+    alert("new date :" + b );
+
+    fetch('https://localhost:5001/api/workout/createworkoutday', {
+    method: 'post',
+    body: JSON.stringify(this.state)
+  }).then(function(response) {
+    return response.json();
+  });
   }
 
   render() {
@@ -34,6 +42,9 @@ class RepsDatePicker extends React.Component {
           selected={this.state.startDate}
           onChange={this.handleChange}
         />
+        <button onClick={this.updateDb.bind(this)}>
+          Start Workout
+      </button>
       </div>
     );
   }
