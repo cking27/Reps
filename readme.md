@@ -28,6 +28,8 @@ docker run --rm --name pg-reps-docker -e POSTGRES_DB=workout,POSTGRES_USER=repsa
 # Reps API
 /build.sh --target=RepsApi-Run
 /build.sh --target=RepsApi-Run
+/build.sh --target=RunApi
+
 
 #Links
 

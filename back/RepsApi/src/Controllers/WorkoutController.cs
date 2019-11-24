@@ -44,13 +44,9 @@ namespace RepsApi.Controllers
         }
 
         [HttpPost("CreateWorkoutDay", Name = "CreateWorkoutDay")]
-        public ActionResult<int> CreateWorkoutDay()
+        public ActionResult<int> CreateWorkoutDay(WorkoutDay workoutDay)
         {
-            var workoutDay = new WorkoutDay(){
-                Date = new System.DateTime(),
-                Description = "bpp",
-                 
-            };
+           System.Console.WriteLine("Hello from Mac");   
 
             var savedWorkoutDay = _context.WorkoutDays.Add(workoutDay);
 

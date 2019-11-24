@@ -8,13 +8,10 @@ import "react-datepicker/dist/react-datepicker.css";
 class RepsDatePicker extends React.Component {
   state = {
     startDate: new Date(),
-    startText: this.getText()
+    startText: "Another Beautiful Day"
   };
 
-  getText(){
-    return "Boo";
-  }
-  
+
   handleChange = date => {
     this.setState({
       startDate: date
@@ -23,16 +20,24 @@ class RepsDatePicker extends React.Component {
     this.updateDb(date);
   };
 
-  updateDb(){
-    var b = this.state.startDate.toLocaleDateString();
-    alert("new date :" + b );
+  handleTextChange = text => {
+    this.setState({
+      startText: text
+    });
 
+  };
+
+  updateDb() {
+    var b = this.state.startDate.toLocaleDateString();
     fetch('https://localhost:5001/api/workout/createworkoutday', {
-    method: 'post',
-    body: JSON.stringify(this.state)
-  }).then(function(response) {
-    return response.json();
-  });
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ Date: this.state.startDate, Description: this.state.startText })
+    }).then(function (response) {
+      return response.json();
+    });
   }
 
   render() {
@@ -42,6 +47,8 @@ class RepsDatePicker extends React.Component {
           selected={this.state.startDate}
           onChange={this.handleChange}
         />
+       <input type="text" value={this.state.startText} onChange={(event) =>this.handleTextChange(event.target.value)} />
+
         <button onClick={this.updateDb.bind(this)}>
           Start Workout
       </button>
