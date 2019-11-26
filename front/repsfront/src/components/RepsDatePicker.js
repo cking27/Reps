@@ -8,7 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 class RepsDatePicker extends React.Component {
   state = {
     startDate: new Date(),
-    startText: "Another Beautiful Day"
+    startText: "Create"
   };
 
 

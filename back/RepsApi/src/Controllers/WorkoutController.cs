@@ -76,12 +76,10 @@ namespace RepsApi.Controllers
     
         }
 
-
-
-        [HttpGet("{id}", Name = "GetWorkout")]
-        public ActionResult<WorkoutDay> GetById(long id)
+        [HttpGet("{id}", Name = "GetWorkoutById")]
+        public ActionResult<Workout> GetBGetWorkoutByIdyId(long id)
         {
-            var item = _context.WorkoutDays.Find(id);
+            var item = _context.Workouts.Find(id);
             if (item == null)
             {
                 return NotFound();

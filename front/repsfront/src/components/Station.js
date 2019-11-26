@@ -6,7 +6,7 @@ class Station extends React.Component {
 	render() {
   	const profile = this.props;
   	return (
-          <div className="station">{profile.name}</div>
+          <div className="station"></div>
     );
   }
 }
