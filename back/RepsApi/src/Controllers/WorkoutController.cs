@@ -31,8 +31,8 @@ namespace RepsApi.Controllers
             _context.SaveChanges();
         }
 
-        [HttpGet]
-        public ActionResult<List<WorkoutDay>> GetAlls()
+        [HttpGet("GetAllWorkoutDays", Name = "GetAllWorkoutDays")]
+        public ActionResult<List<WorkoutDay>> GetAllWorkoutDays()
         {
             return _context.WorkoutDays.ToList();
         }

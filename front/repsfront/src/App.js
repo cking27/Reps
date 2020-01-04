@@ -3,6 +3,7 @@ import "./App.css";
 import RepsDatePicker from "./components/RepsDatePicker";
 import Station from "./components/Station";
 import Workout from "./components/Workout";
+import WorkoutList from "./components/WorkoutList";
 import {
   BrowserRouter as Router,
   Switch,
@@ -37,7 +38,6 @@ class StationList extends React.Component {
 }
 
 
-
 function App() {
   return (
     <HashRouter>
@@ -45,12 +45,13 @@ function App() {
         <div className="flex-container">
           <ul className="header">
             <li><NavLink exact to="/">Home</NavLink></li>
-            <li><NavLink to="/workout">Workout</NavLink></li>
+            <li><NavLink exact to="/workoutlist">Workout List</NavLink></li>
             <li><NavLink to="/admin">Admin</NavLink></li>
           </ul>
         </div>
         <div className="flex-container-content2">
           <Route exact path="/" component={Home} />
+          <Route exact path="/workoutlist" component={WorkoutList} />
           <Route path="/workout" component={(props) => <Workout {...props} date="Nov 25" />} />
           <Route path="/admin" component={Admin} />
         </div>
@@ -62,10 +63,10 @@ function App() {
 function Home() {
   return (
     <div className="flex-container">
+      <div>
       <div className="title"> Create a workout sesssion </div>
-      <div className="break"></div>
-      <RepsDatePicker className="RepsDatePicker" />
-
+      <RepsDatePicker />
+      </div>
     </div>
   );
 }

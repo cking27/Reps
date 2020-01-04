@@ -1,4 +1,4 @@
-.App .RepsDatePicker {
+.App, .RepsDatePicker {
   width: 100%;
   display: flex;
   justify-content: center;
